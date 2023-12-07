@@ -1,7 +1,12 @@
-import express from 'express'
+const express = require('express');
+const app = express();
 
-const app = express()
+app.use((req, res) => {
+  res.status(200).send('A Monk in Cloud');
+});
 
-app.listen(5001, () => console.log(`Api running on port 5001`))
+const port = 80;
 
-app.get('/', (req, res) => res.json("my api running"))
+app.listen(port, () => {
+  console.log(`Server running at port ${port}`);
+});
