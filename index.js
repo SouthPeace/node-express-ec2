@@ -1,12 +1,10 @@
-import express from 'express';
-const app = express();
+import http from 'http';
 
-app.use((req, res) => {
-  res.status(200).send('A Monk in Cloud');
+const server = http.createServer((req, res) => {
+  res.write('A Monk in Cloud');
+  res.end();
 });
 
-const port = 80;
-
-app.listen(port, () => {
-  console.log(`Server running at port ${port}`);
+server.listen(80, () => {
+  console.log('Server is running on port 80');
 });
